@@ -1,38 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+VIC:wght@100..400&family=Playwrite+ES:wght@100..400&display=swap');
+
+:root {
+	--header-height: 3rem;
+
+	/*========== Colors ==========*/
+	/* Change favorite color */
+	--hue-color: 325; /*250; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
+
+	/* HSL color mode first color --> Hex	#f9660b*/
+	--main-base: /*hsl(var(--hue-color), 100%, 72%)*/ #8758ff;
+  --main-text: /*hsl(var(--hue-color), 100%, 72%)*/ #fff;
+	--todo-wrapper: /*hsl(var(--hue-color), 57%, 53%)*/ #1A1A40;
+  --todo-placeholder: /*hsl(var(--hue-color), 95%, 51%)*/ #ffffff4d;
+	--completed: /*hsl(var(--hue-color), 8%, 15%)*/ #c5aeff;
+	
+}
+
+* {
+  font-family: "Work Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--main-base);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  font-family: "Playwrite AU VIC", cursive;
+  color: var(--main-text);
+  margin-bottom: 0.5rem;
+  font-size: 1.75rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.TodoWrapper {
+  background: var(--todo-wrapper);
+  margin-top: 5rem;
+  padding: 2rem;
+  border-radius: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.TodoForm {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.todo-input {
+  outline: none;
+  background: none;
+  border: 1.5px solid var(--main-base);
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  width: 300px;
+  color: var(--main-text);
+}
+
+.todo-input::placeholder {
+  color: var(--todo-placeholder);
+}
+
+.todo-btn {
+  background: var(--main-base);
+  color: var(--main-text);
+  border: 1.5px;
+  padding: 0.55rem;
+  cursor: pointer;
+}
+
+.Todo {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background: var(--main-base);
+  color: var(--main-text);
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.fa-trash {
+  margin-left: 0.75rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.incompleted {
+  color: var(--main-text);
+  cursor: pointer;
 }
+
+.completed {
+  color: var(--completed);
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
+.edit-icon,
+.delete-icon {
+  cursor: pointer;
+}
+ 
