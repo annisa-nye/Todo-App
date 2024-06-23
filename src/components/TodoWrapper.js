@@ -29,11 +29,11 @@ export const TodoWrapper = () => {
 		setTodos(todos.filter((todo) => todo.id !== id));
 	};
 
-	const editTodoForm = (id) => {
+	const editTodoForm = (id, text) => {
 		setTodos(
 			todos.map((todo) => {
 				if (todo.id === id) {
-					return { ...todo, isEditing: !todo.isEditing };
+					return { ...todo, isEditing: !todo.isEditing, task: text };
 				} else {
 					return todo;
 				}

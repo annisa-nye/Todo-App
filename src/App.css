@@ -9,102 +9,102 @@
 	--hue-color: 325; /*250; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
 
 	/* HSL color mode first color --> Hex	#f9660b*/
-	--main-base: /*hsl(var(--hue-color), 100%, 72%)*/ #8758ff;
-  --main-text: /*hsl(var(--hue-color), 100%, 72%)*/ #fff;
-	--todo-wrapper: /*hsl(var(--hue-color), 57%, 53%)*/ #1A1A40;
-  --todo-placeholder: /*hsl(var(--hue-color), 95%, 51%)*/ #ffffff4d;
+	--main-base: /*hsl(var(--hue-color), 100%, 72%)*/ /*#8758ff*/ #ffc4d1;
+	--main-box: /*hsl(var(--hue-color), 100%, 72%)*/ /*#8758ff*/  #d4dccd;
+	--main-text: /*hsl(var(--hue-color), 100%, 72%)*/ #fff;
+	--todo-wrapper: /*hsl(var(--hue-color), 57%, 53%)*//*#1A1A40*/
+		#6b717e;
+	--todo-placeholder: /*hsl(var(--hue-color), 95%, 51%)*/ #ffffff4d;
 	--completed: /*hsl(var(--hue-color), 8%, 15%)*/ #c5aeff;
-	
 }
 
 * {
-  font-family: "Work Sans", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	font-family: 'Work Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-  background: var(--main-base);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	background: var(--main-base);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 h1 {
-  font-family: "Playwrite AU VIC", cursive;
-  color: var(--main-text);
-  margin-bottom: 0.5rem;
-  font-size: 1.75rem;
+	font-family: 'Playwrite AU VIC', cursive;
+	color: var(--main-text);
+	margin-bottom: 0.5rem;
+	font-size: 1.75rem;
 }
 
 .TodoWrapper {
-  background: var(--todo-wrapper);
-  margin-top: 5rem;
-  padding: 2rem;
-  border-radius: 10px;
+	background: var(--todo-wrapper);
+	margin-top: 5rem;
+	padding: 2rem;
+	border-radius: 10px;
 }
 
 .TodoForm {
-  width: 100%;
-  margin-bottom: 1rem;
+	width: 100%;
+	margin-bottom: 1rem;
 }
 
 .todo-input {
-  outline: none;
-  background: none;
-  border: 1.5px solid var(--main-base);
-  padding: 0.5rem 1rem;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  width: 300px;
-  color: var(--main-text);
+	outline: none;
+	background: none;
+	border: 1.5px solid var(--main-box);
+	padding: 0.5rem 1rem;
+	margin-top: 1rem;
+	margin-bottom: 2rem;
+	width: 300px;
+	color: var(--main-placeholder);
 }
 
 .todo-input::placeholder {
-  color: var(--todo-placeholder);
+	color: var(--todo-placeholder);
 }
 
 .todo-btn {
-  background: var(--main-base);
-  color: var(--main-text);
-  border: 1.5px;
-  padding: 0.55rem;
-  cursor: pointer;
+	background: var(--main-box);
+	color: var(--main-text);
+	border: 1.5px;
+	padding: 0.55rem;
+	cursor: pointer;
 }
 
 .Todo {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: var(--main-base);
-  color: var(--main-text);
-  padding: 0.75rem 1rem;
-  border-radius: 5px;
-  margin-bottom: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: var(--main-base);
+	color: var(--main-text);
+	padding: 0.75rem 1rem;
+	border-radius: 5px;
+	margin-bottom: 1rem;
 }
 
 .fa-trash {
-  margin-left: 0.75rem;
+	margin-left: 0.75rem;
 }
 
 .incompleted {
-  color: var(--main-text);
-  cursor: pointer;
+	color: var(--main-text);
+	cursor: pointer;
 }
 
 .completed {
-  color: var(--completed);
-  text-decoration: line-through;
-  cursor: pointer;
+	color: var(--completed);
+	text-decoration: line-through;
+	cursor: pointer;
 }
 
 .edit-icon,
 .delete-icon {
-  cursor: pointer;
+	cursor: pointer;
 }
- 
