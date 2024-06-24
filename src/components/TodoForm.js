@@ -1,27 +1,140 @@
 import React, { useState } from 'react';
+import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 
 export const TodoForm = ({ addTodo }) => {
-	const [value, setValue] = useState('');
+	const [isOpen, setIsOpen] = useState(false);
+	const [name, setName] = useState('');
+	const [description, setDescription] = useState('');
+	const [dueDate, setDueDate] = useState('');
+	const [assignedTo, setAssignedTo] = useState('');
+	const [status, setStatus] = useState('in-progress');
+	const [errors, setErrors] = useState({});
+
+	const validate = () => {
+		const newErrors = {};
+		if (!name.trim()) newErrors.name = 'Name is required';
+		if (!description.trim()) newErrors.description = 'Description is required';
+		if (!dueDate) newErrors.dueDate = 'Due date is required';
+		if (!assignedTo.trim()) newErrors.assignedTo = 'Assigned to is required';
+		setErrors(newErrors);
+		return Object.keys(newErrors).length === 0;
+	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		if (!value.trim()) return; // Prevent submitting empty values
-		addTodo(value);
-		setValue(''); // Reset input field
+		if (!validate()) return;
+
+		addTodo({
+			name,
+			description,
+			dueDate,
+			assignedTo,
+			status,
+		});
+		setName('');
+		setDescription('');
+		setDueDate('');
+		setAssignedTo('');
+		setStatus('in-progress');
+		setErrors({});
+		setIsOpen(false); // Close the dialog
 	};
 
 	return (
-		<form className='TodoForm' onSubmit={handleSubmit}>
-			<input
-				type='text'
-				className='todo-input'
-				placeholder='What is the task today?'
-				onChange={(e) => setValue(e.target.value)}
-				value={value}
-			/>
-			<button type='submit' className='todo-btn'>
-				Add Task
+		<div>
+			<button onClick={() => setIsOpen(true)} className='todo-btn'>
+				Add New Task
 			</button>
-		</form>
+			<Dialog
+				open={isOpen}
+				onClose={() => setIsOpen(false)}
+				className='dialogpanel relative z-50'
+			>
+				<div
+					className='dialogpanelinside fixed inset-0 flex items-center justify-center p-4'>
+					<DialogPanel className='w-full max-w-md p-6 bg-white rounded-lg shadow-lg'>
+						<DialogTitle className='font-bold text-xl'>
+							Add New Task
+						</DialogTitle>
+						<form className='space-y-4' onSubmit={handleSubmit}>
+							<div>
+								<input
+									type='text'
+									placeholder='Task Name'
+									value={name}
+									onChange={(e) => setName(e.target.value)}
+									className='w-full p-2 border rounded'
+								/>
+								{errors.name && (
+									<p className='error'>{errors.name}</p>
+								)}
+							</div>
+							<br /> 
+							<div>
+								<textarea
+									placeholder='Description'
+									value={description}
+									onChange={(e) => setDescription(e.target.value)}
+									className='w-full p-2 border rounded'
+								/>
+								{errors.description && (
+									<p className='error'>{errors.description}</p>
+								)}
+							</div>
+							<br />
+							<div>
+								<input
+									type='date'
+									value={dueDate}
+									onChange={(e) => setDueDate(e.target.value)}
+									className='w-full p-2 border rounded'
+								/>
+								{errors.dueDate && (
+									<p className='error'>{errors.dueDate}</p>
+								)}
+							</div>
+							<br />
+							<div>
+								<input
+									type='text'
+									placeholder='Assigned To'
+									value={assignedTo}
+									onChange={(e) => setAssignedTo(e.target.value)}
+									className='w-full p-2 border rounded'
+								/>
+								{errors.assignedTo && (
+									<p className='error'>{errors.assignedTo}</p>
+								)}
+							</div>
+							<br />
+							<div>
+								<select
+									value={status}
+									onChange={(e) => setStatus(e.target.value)}
+									className='w-full p-2 border rounded'
+								>
+									<option value='in-progress'>In Progress</option>
+									<option value='completed'>Completed</option>
+									<option value='review'>Review</option>
+								</select>
+							</div>
+							<br />
+							<div className='flex justify-end space-x-4'>
+								<button
+									type='button'
+									onClick={() => setIsOpen(false)}
+									className='todo-btn'
+								>
+									Cancel
+								</button>
+								<button type='submit' className='todo-btn'>
+									Add Task
+								</button>
+							</div>
+						</form>
+					</DialogPanel>
+				</div>
+			</Dialog>
+		</div>
 	);
 };
