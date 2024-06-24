@@ -27,7 +27,7 @@
 }
 
 body {
-	background: var(--main-base);
+	background-image: url(../src/components/images/hhholographic.png);
 	display: flex;
 	justify-content: center;
 	align-items: center;
