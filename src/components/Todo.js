@@ -10,7 +10,7 @@ export const Todo = ({ task, deleteTodo, editTodo }) => {
 		<div
 			className={`todo ${task.status === 'completed' ? 'completed' : ''}`}
 			style={{
-				backgroundColor: 'rgb(255, 233, 255)',
+				backgroundColor: 'rgb(255, 238, 255)',
 				border: '2px solid black',
 				borderRadius: 8,
 				padding: 8,

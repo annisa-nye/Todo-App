@@ -9,6 +9,7 @@
 	--hue-color: 325; /*250; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
 
 	/* HSL color mode first color --> Hex	#f9660b*/
+	--background: rgb(255, 238, 255);
 	--main-base: /* #8758ff */ #7ad7f0;
 	--main-box: /* #8758ff*/ #44c8e0;
 	--main-text: #fff;
@@ -65,8 +66,8 @@ h2 {
 
 .newtask-btn {
 	background: var(--new-task);
+	border: none;
 	color: var(--main-text);
-	border: 2px solid var(--completed);
 	padding: 0.8rem;
 	cursor: pointer;
 	border-radius: 5px;
@@ -83,8 +84,8 @@ h2 {
 
 .todo-btn {
 	background: var(--main-box);
+	border: none;
 	color: var(--main-text);
-	border: 1.5px;
 	padding: 0.8rem;
 	cursor: pointer;
 	border-radius: 5px;

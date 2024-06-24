@@ -52,7 +52,7 @@ export const TodoForm = ({ addTodo }) => {
 				style={{
 					backgroundColor: 'white',
 					position: 'fixed',
-					height: '50%',
+					height: '60%',
 					top: '25%',
 					left: '25%',
 					right: 0,
