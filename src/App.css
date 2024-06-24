@@ -29,13 +29,19 @@
 
 body {
 	background-image: url(../src/components/images/hhholographic.png);
+	background-size: cover;
+	background-position: center;
+	margin: 0;
+	height: 100vh;
 	display: flex;
 	justify-content: center;
-	align-items: center;
 }
 
 .App {
 	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 h1 {
@@ -55,8 +61,10 @@ h2 {
 .TodoWrapper {
 	background: var(--todo-wrapper);
 	margin-top: 5rem;
-	padding: 2rem;
+	margin-bottom: 5rem;
+	padding: 3rem;
 	border-radius: 10px;
+	width: 130%;
 }
 
 .TodoForm {
@@ -90,14 +98,6 @@ h2 {
 	cursor: pointer;
 	border-radius: 5px;
 	margin: 0.5rem;
-}
-
-.sort-buttons {
-	margin: 20px 0;
-}
-
-.sort-buttons .todo-btn {
-	margin-right: 10px;
 }
 
 .todo-btn:hover {
@@ -137,9 +137,6 @@ h2 {
 	margin-bottom: 0.5rem;
 }
 
-.App {
-	text-align: center;
-}
 
 .weather-time {
 	position: absolute;
@@ -150,4 +147,41 @@ h2 {
 	border-radius: 8px;
 	border: 2px solid var(--todo-wrapper);
 	z-index: 1000; /* Ensure it stays on top of other elements */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1200px) {
+	.TodoWrapper {
+		width: 100%;
+	}
+}
+
+@media (max-width: 992px) {
+	.TodoWrapper {
+		width: 100%;
+	}
+}
+
+@media (max-width: 768px) {
+	.TodoWrapper {
+		width: 95%;
+		padding: 1rem;
+	}
+}
+
+@media (max-width: 576px) {
+	.TodoWrapper {
+		width: 90%;
+		margin: 1rem;
+		padding: 1rem;
+	}
+	h1 {
+		font-size: 1.5rem;
+	}
+	h2 {
+		font-size: 1.25rem;
+	}
+	.weather-time {
+		display: none; /* Hide weather-time on small screens */
+	}
 }
