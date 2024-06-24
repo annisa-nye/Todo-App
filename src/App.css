@@ -77,6 +77,15 @@ h2 {
 	margin: 0.5rem;
 }
 
+.sort-buttons {
+  margin: 20px 0;
+}
+
+.sort-buttons .todo-btn {
+  margin-right: 10px;
+}
+
+
 .todo-btn:hover {
 	background: var(--main-base);
 	color: var(--main-text);
@@ -113,3 +122,4 @@ h2 {
 	font-size: 0.8rem;
 	margin-bottom: 0.5rem;
 }
+

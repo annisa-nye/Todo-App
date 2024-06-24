@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { EditTodoForm } from './EditTodoForm';
 
-export const Todo = ({ task, toggleComplete, deleteTodo, editTodo }) => {
+export const Todo = ({ task, deleteTodo, editTodo }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
@@ -25,9 +25,11 @@ export const Todo = ({ task, toggleComplete, deleteTodo, editTodo }) => {
 						<strong>Due:</strong> {task.dueDate}
 					</p>
 					<p>
-						<strong> Assigned to: </strong> {task.assignedTo}</p>
+						<strong>Assigned to:</strong> {task.assignedTo}
+					</p>
 					<p>
-						<strong> Status: </strong> {task.status}</p>
+						<strong>Status:</strong> {task.status}
+					</p>
 				</div>
 				<br />
 			</div>
