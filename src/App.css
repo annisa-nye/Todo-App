@@ -123,3 +123,17 @@ h2 {
 	margin-bottom: 0.5rem;
 }
 
+.App {
+    text-align: center;
+}
+
+.weather-time {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 8px;
+	border: 2px solid var(--todo-wrapper);
+    z-index: 1000; /* Ensure it stays on top of other elements */
+}
