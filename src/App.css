@@ -9,18 +9,14 @@
 	--hue-color: 325; /*250; /*Purple 250 - Green 142 - Blue 230 - Pink 340*/
 
 	/* HSL color mode first color --> Hex	#f9660b*/
-	--main-base: /*hsl(var(--hue-color), 100%, 72%)*/ /* #8758ff */ #7ad7f0;
-	--main-box: /*hsl(var(--hue-color), 100%, 72%)*//* #8758ff*/
-		#44c8e0;
-	--main-text: /*hsl(var(--hue-color), 100%, 72%)*/ #fff;
-	--todo-wrapper: /*hsl(var(--hue-color), 57%, 53%)*//*#1A1A40*/
-		/*#6b717e*/ #fd7ac0;
-	--todo-placeholder: /*hsl(var(--hue-color), 95%, 51%)*/ #ffffff4d;
-	--completed: /*hsl(var(--hue-color), 8%, 15%)*/ /*#f7d4e0*/ rgb(
-		255,
-		183,
-		255
-	);
+	--main-base: /* #8758ff */ #7ad7f0;
+	--main-box: /* #8758ff*/ #44c8e0;
+	--main-text: #fff;
+	--new-task: rgb(183, 183, 255);
+	--new-task-hover: rgb(219, 208, 255);
+	--todo-wrapper: /*#1A1A40*/ /*#6b717e*/ #fd7ac0;
+	--todo-placeholder: #ffffff4d;
+	--completed: /*#f7d4e0*/ rgb(255, 183, 255);
 }
 
 * {
@@ -67,6 +63,24 @@ h2 {
 	margin-bottom: 1rem;
 }
 
+.newtask-btn {
+	background: var(--new-task);
+	color: var(--main-text);
+	border: 2px solid var(--completed);
+	padding: 0.8rem;
+	cursor: pointer;
+	border-radius: 5px;
+	margin: 0.5rem;
+	font-size: large;
+}
+
+.newtask-btn:hover {
+	background: var(--new-task-hover);
+	color: var(--main-text);
+	font-style: bold;
+	transform: scale(1.1);
+}
+
 .todo-btn {
 	background: var(--main-box);
 	color: var(--main-text);
@@ -78,13 +92,12 @@ h2 {
 }
 
 .sort-buttons {
-  margin: 20px 0;
+	margin: 20px 0;
 }
 
 .sort-buttons .todo-btn {
-  margin-right: 10px;
+	margin-right: 10px;
 }
-
 
 .todo-btn:hover {
 	background: var(--main-base);
@@ -124,16 +137,16 @@ h2 {
 }
 
 .App {
-    text-align: center;
+	text-align: center;
 }
 
 .weather-time {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    border-radius: 8px;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 10px;
+	border-radius: 8px;
 	border: 2px solid var(--todo-wrapper);
-    z-index: 1000; /* Ensure it stays on top of other elements */
+	z-index: 1000; /* Ensure it stays on top of other elements */
 }

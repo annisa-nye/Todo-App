@@ -42,7 +42,7 @@ export const TodoForm = ({ addTodo }) => {
 
 	return (
 		<div>
-			<button onClick={() => setIsOpen(true)} className='todo-btn'>
+			<button onClick={() => setIsOpen(true)} className='newtask-btn'>
 				Add New Task
 			</button>
 			<Dialog
@@ -134,11 +134,11 @@ export const TodoForm = ({ addTodo }) => {
 								<button
 									type='button'
 									onClick={() => setIsOpen(false)}
-									className='todo-btn'
+									className='newtask-btn'
 								>
 									Cancel
 								</button>
-								<button type='submit' className='todo-btn'>
+								<button type='submit' className='newtask-btn'>
 									Add Task
 								</button>
 							</div>
