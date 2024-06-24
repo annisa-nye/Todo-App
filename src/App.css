@@ -16,7 +16,11 @@
 	--todo-wrapper: /*hsl(var(--hue-color), 57%, 53%)*//*#1A1A40*/
 		/*#6b717e*/ #fd7ac0;
 	--todo-placeholder: /*hsl(var(--hue-color), 95%, 51%)*/ #ffffff4d;
-	--completed: /*hsl(var(--hue-color), 8%, 15%)*/ #f7d4e0;
+	--completed: /*hsl(var(--hue-color), 8%, 15%)*/ /*#f7d4e0*/ rgb(
+		255,
+		183,
+		255
+	);
 }
 
 * {
