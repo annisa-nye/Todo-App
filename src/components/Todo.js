@@ -21,9 +21,9 @@ export const Todo = ({ task, toggleComplete, deleteTodo, editTodo }) => {
 				<h2>{task.name}</h2>
 				<p>{task.description}</p>
 				<div className='task-info'>
-					<p>Due: {task.dueDate}</p>
-					<p>Assigned to: {task.assignedTo}</p>
-					<p>Status: {task.status}</p>
+					<p><strong>Due:</strong> {task.dueDate}</p>
+					<p><strong>Assigned to:</strong> {task.assignedTo}</p>
+					<p><strong>Status:</strong> {task.status}</p>
 				</div>
 				<br />
 			</div>
