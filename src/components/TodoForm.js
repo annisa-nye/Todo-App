@@ -48,14 +48,29 @@ export const TodoForm = ({ addTodo }) => {
 			<Dialog
 				open={isOpen}
 				onClose={() => setIsOpen(false)}
-				className='dialogpanel relative z-50'
+				className='relative z-50'
+				style={{
+					backgroundColor: 'white',
+					position: 'fixed',
+					height: '50%',
+					top: '25%',
+					left: '25%',
+					right: 0,
+					bottom: 0,
+					display: 'flex',
+					width: '50%',
+					alignItems: 'center',
+					justifyContent: 'space-evenly',
+					padding: 64,
+					borderRadius: 12,
+				}}
 			>
-				<div
-					className='dialogpanelinside fixed inset-0 flex items-center justify-center p-4'>
+				<div className='fixed inset-0 flex items-center justify-center p-4'>
 					<DialogPanel className='w-full max-w-md p-6 bg-white rounded-lg shadow-lg'>
 						<DialogTitle className='font-bold text-xl'>
-							Add New Task
+							<h2>Add New Task</h2>
 						</DialogTitle>
+						<br />
 						<form className='space-y-4' onSubmit={handleSubmit}>
 							<div>
 								<input
@@ -65,11 +80,9 @@ export const TodoForm = ({ addTodo }) => {
 									onChange={(e) => setName(e.target.value)}
 									className='w-full p-2 border rounded'
 								/>
-								{errors.name && (
-									<p className='error'>{errors.name}</p>
-								)}
+								{errors.name && <p className='error'>{errors.name}</p>}
 							</div>
-							<br /> 
+							<br />
 							<div>
 								<textarea
 									placeholder='Description'
@@ -89,9 +102,7 @@ export const TodoForm = ({ addTodo }) => {
 									onChange={(e) => setDueDate(e.target.value)}
 									className='w-full p-2 border rounded'
 								/>
-								{errors.dueDate && (
-									<p className='error'>{errors.dueDate}</p>
-								)}
+								{errors.dueDate && <p className='error'>{errors.dueDate}</p>}
 							</div>
 							<br />
 							<div>

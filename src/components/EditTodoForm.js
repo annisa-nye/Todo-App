@@ -37,28 +37,29 @@ export const EditTodoForm = ({ task, isOpen, setIsOpen, editTodo }) => {
 		<Dialog
 			open={isOpen}
 			onClose={() => setIsOpen(false)}
-			className='dialogpanel relative z-50'
+			className='relative z-50'
+			style={{
+				backgroundColor: 'white',
+				position: 'fixed',
+				height: '50%',
+				top: '25%',
+				left: '25%',
+				right: 0,
+				bottom: 0,
+				display: 'flex',
+				width: '50%',
+				alignItems: 'center',
+				justifyContent: 'space-evenly',
+				padding: 64,
+				borderRadius: 12,
+			}}
 		>
-			<div
-				className='fixed inset-0 flex items-center justify-center p-4'
-				style={{
-					backgroundColor: 'white',
-					position: 'fixed',
-					height: '50%',
-					top: '25%',
-					left: '25%',
-					right: 0,
-					bottom: 0,
-					display: 'flex',
-					width: '50%',
-					alignItems: 'center',
-					justifyContent: 'space-evenly',
-					padding: 64,
-					borderRadius: 12,
-				}}
-			>
+			<div className='fixed inset-0 flex items-center justify-center p-4'>
 				<DialogPanel className='w-full max-w-md p-6 bg-white rounded-lg shadow-lg'>
-					<DialogTitle className='font-bold text-xl'>Edit Task</DialogTitle>
+					<DialogTitle className='font-bold text-xl'>
+						<h2>Edit Task</h2>
+					</DialogTitle>
+					<br />
 					<form onSubmit={handleEditSubmit} className='space-y-4'>
 						<div>
 							<input
