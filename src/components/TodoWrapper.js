@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TodoForm } from './TodoForm';
 import { Todo } from './Todo';
-import ApiData from './ApiData';
 
 const TodoWrapper = () => {
     const [todos, setTodos] = useState([]);
+    const [status, setStatus] = useState('in-progress');
 
     const addTodo = (task) => {
         setTodos([
@@ -30,11 +30,22 @@ const TodoWrapper = () => {
         );
     };
 
+    const handleStatusChange = (newStatus) => {
+        setStatus(newStatus);
+    };
+
+    const filteredTasks = todos.filter(todo => todo.status === status);
+
     return (
         <div className='TodoWrapper'>
             <h1>✅ To Do Application ✅</h1>
+            <div className="status-buttons">
+                <button onClick={() => handleStatusChange('in-progress')}>In Progress</button>
+                <button onClick={() => handleStatusChange('completed')}>Completed</button>
+                <button onClick={() => handleStatusChange('review')}>Review</button>
+            </div>
             <TodoForm addTodo={addTodo} />
-            {todos.map((todo) => (
+            {filteredTasks.map((todo) => (
                 <Todo
                     key={todo.id}
                     task={todo}
@@ -42,10 +53,10 @@ const TodoWrapper = () => {
                     editTodo={editTodo}
                 />
             ))}
-			<ApiData />
         </div>
     );
 };
 
 export default TodoWrapper;
+
 
