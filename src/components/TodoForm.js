@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Dialog, DialogPanel, DialogTitle } from '@headlessui/react';
 
 export const TodoForm = ({ addTodo }) => {
@@ -9,6 +9,9 @@ export const TodoForm = ({ addTodo }) => {
 	const [assignedTo, setAssignedTo] = useState('');
 	const [status, setStatus] = useState('in-progress');
 	const [errors, setErrors] = useState({});
+	const [dialogStyle, setDialogStyle] = useState(
+		getDialogStyle(window.innerWidth)
+	);
 
 	const validate = () => {
 		const newErrors = {};
@@ -40,6 +43,61 @@ export const TodoForm = ({ addTodo }) => {
 		setIsOpen(false); // Close the dialog
 	};
 
+	useEffect(() => {
+		const handleResize = () => {
+			setDialogStyle(getDialogStyle(window.innerWidth));
+		};
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
+
+	function getDialogStyle(width) {
+		if (width <= 576) {
+			return {
+				backgroundColor: 'white',
+				position: 'fixed',
+				top: '5%',
+				left: '2.5%',
+				width: '95%',
+				padding: '8px',
+				borderRadius: '12px',
+				height: 'auto',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+			};
+		} else if (width <= 768) {
+			return {
+				backgroundColor: 'white',
+				position: 'fixed',
+				top: '10%',
+				left: '10%',
+				width: '80%',
+				padding: '16px',
+				borderRadius: '12px',
+				height: 'auto',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+			};
+		} else {
+			return {
+				backgroundColor: 'white',
+				position: 'fixed',
+				top: '50%',
+				left: '50%',
+				transform: 'translate(-50%, -50%)',
+				width: '50%',
+				padding: '64px',
+				borderRadius: '12px',
+				height: 'auto',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+			};
+		}
+	}
+
 	return (
 		<div>
 			<button onClick={() => setIsOpen(true)} className='newtask-btn'>
@@ -49,23 +107,8 @@ export const TodoForm = ({ addTodo }) => {
 				open={isOpen}
 				onClose={() => setIsOpen(false)}
 				className='relative z-50'
-				style={{
-					backgroundColor: 'white',
-					position: 'fixed',
-					height: '60%',
-					top: '25%',
-					left: '25%',
-					right: 0,
-					bottom: 0,
-					display: 'flex',
-					width: '50%',
-					alignItems: 'center',
-					justifyContent: 'space-evenly',
-					padding: 64,
-					borderRadius: 12,
-				}}
 			>
-				<div className='fixed inset-0 flex items-center justify-center p-4'>
+				<div style={dialogStyle}>
 					<DialogPanel className='w-full max-w-md p-6 bg-white rounded-lg shadow-lg'>
 						<DialogTitle className='font-bold text-xl'>
 							<h2>Add New Task</h2>
@@ -134,11 +177,11 @@ export const TodoForm = ({ addTodo }) => {
 								<button
 									type='button'
 									onClick={() => setIsOpen(false)}
-									className='newtask-btn'
+									className='small-newtask-btn'
 								>
 									Cancel
 								</button>
-								<button type='submit' className='newtask-btn'>
+								<button type='submit' className='small-newtask-btn'>
 									Add Task
 								</button>
 							</div>

@@ -91,6 +91,23 @@ h2 {
 	transform: scale(1.1);
 }
 
+.small-newtask-btn {
+	background: var(--new-task);
+	border: none;
+	color: var(--main-text);
+	padding: 0.8rem;
+	cursor: pointer;
+	border-radius: 5px;
+	margin: 0.5rem;
+}
+
+.small-newtask-btn:hover {
+	background: var(--new-task-hover);
+	color: var(--main-text);
+	font-style: bold;
+	transform: scale(1.1);
+}
+
 .todo-btn {
 	background: var(--main-box);
 	border: none;
@@ -186,3 +203,4 @@ h2 {
 		display: none; /* Hide weather-time on small screens */
 	}
 }
+

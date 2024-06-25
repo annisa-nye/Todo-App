@@ -9,6 +9,9 @@ export const EditTodoForm = ({ task, isOpen, setIsOpen, editTodo }) => {
 		assignedTo: '',
 		status: 'in-progress',
 	});
+	const [dialogStyle, setDialogStyle] = useState(
+		getDialogStyle(window.innerWidth)
+	);
 
 	useEffect(() => {
 		if (isOpen) {
@@ -20,6 +23,12 @@ export const EditTodoForm = ({ task, isOpen, setIsOpen, editTodo }) => {
 				status: task.status,
 			});
 		}
+
+		const handleResize = () => {
+			setDialogStyle(getDialogStyle(window.innerWidth));
+		};
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
 	}, [isOpen, task]);
 
 	const handleEditChange = (e) => {
@@ -33,28 +42,60 @@ export const EditTodoForm = ({ task, isOpen, setIsOpen, editTodo }) => {
 		setIsOpen(false); // Close the dialog
 	};
 
+	function getDialogStyle(width) {
+		if (width <= 576) {
+			return {
+				backgroundColor: 'white',
+				position: 'fixed',
+				top: '5%',
+				left: '2.5%',
+				width: '95%',
+				padding: '8px',
+				borderRadius: '12px',
+				height: 'auto',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+			};
+		} else if (width <= 768) {
+			return {
+				backgroundColor: 'white',
+				position: 'fixed',
+				top: '10%',
+				left: '10%',
+				width: '80%',
+				padding: '16px',
+				borderRadius: '12px',
+				height: 'auto',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+			};
+		} else {
+			return {
+				backgroundColor: 'white',
+				position: 'fixed',
+				top: '50%',
+				left: '50%',
+				transform: 'translate(-50%, -50%)',
+				width: '50%',
+				padding: '64px',
+				borderRadius: '12px',
+				height: 'auto',
+				display: 'flex',
+				alignItems: 'center',
+				justifyContent: 'center',
+			};
+		}
+	}
+
 	return (
 		<Dialog
 			open={isOpen}
 			onClose={() => setIsOpen(false)}
 			className='relative z-50'
-			style={{
-				backgroundColor: 'white',
-				position: 'fixed',
-				height: '50%',
-				top: '25%',
-				left: '25%',
-				right: 0,
-				bottom: 0,
-				display: 'flex',
-				width: '50%',
-				alignItems: 'center',
-				justifyContent: 'space-evenly',
-				padding: 64,
-				borderRadius: 12,
-			}}
 		>
-			<div className='fixed inset-0 flex items-center justify-center p-4'>
+			<div style={dialogStyle}>
 				<DialogPanel className='w-full max-w-md p-6 bg-white rounded-lg shadow-lg'>
 					<DialogTitle className='font-bold text-xl'>
 						<h2>Edit Task</h2>
@@ -134,3 +175,5 @@ export const EditTodoForm = ({ task, isOpen, setIsOpen, editTodo }) => {
 		</Dialog>
 	);
 };
+
+export default EditTodoForm;
