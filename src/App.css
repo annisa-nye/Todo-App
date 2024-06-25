@@ -67,8 +67,18 @@ h2 {
 }
 
 .status-btn {
-	background-color: #7ad7f0;
+	background-color: #44c8e0;
+	border: none;
 	border-radius: 5px;
+	padding: 8px 16px;
+	color: white;
+	cursor: pointer;
+	outline: none;
+
+}
+
+.status-btn:hover {
+	transform: scale(1.1);
 }
 
 
