@@ -40,9 +40,9 @@ const TodoWrapper = () => {
         <div className='TodoWrapper'>
             <h1>✅ To Do Application ✅</h1>
             <div className="status-buttons">
-                <button onClick={() => handleStatusChange('in-progress')}>In Progress</button>
-                <button onClick={() => handleStatusChange('completed')}>Completed</button>
-                <button onClick={() => handleStatusChange('review')}>Review</button>
+                <button className="status-btn" onClick={() => handleStatusChange('in-progress')}>In Progress</button>
+                <button className="status-btn" onClick={() => handleStatusChange('completed')}>Completed</button>
+                <button className="status-btn" onClick={() => handleStatusChange('review')}>Review</button>
             </div>
             <TodoForm addTodo={addTodo} />
             {filteredTasks.map((todo) => (
