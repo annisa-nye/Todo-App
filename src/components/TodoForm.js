@@ -99,7 +99,7 @@ export const TodoForm = ({ addTodo }) => {
 	}
 
 	return (
-		<div>
+		<section>
 			<button onClick={() => setIsOpen(true)} className='newtask-btn'>
 				Add New Task
 			</button>
@@ -189,6 +189,6 @@ export const TodoForm = ({ addTodo }) => {
 					</DialogPanel>
 				</div>
 			</Dialog>
-		</div>
+		</section>
 	);
 };

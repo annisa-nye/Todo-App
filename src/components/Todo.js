@@ -7,7 +7,7 @@ export const Todo = ({ task, deleteTodo, editTodo }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
-		<div
+		<article
 			className={`todo ${task.status === 'completed' ? 'completed' : ''}`}
 			style={{
 				backgroundColor: 'rgb(255, 238, 255)',
@@ -18,9 +18,11 @@ export const Todo = ({ task, deleteTodo, editTodo }) => {
 			}}
 		>
 			<div className='flex justify-between'>
-				<h2>{task.name}</h2>
+				<header>
+					<h2>{task.name}</h2>
+				</header>
 				<p>{task.description}</p>
-				<div className='task-info'>
+				<section className='task-info'>
 					<p>
 						<strong>Due:</strong> {task.dueDate}
 					</p>
@@ -30,7 +32,7 @@ export const Todo = ({ task, deleteTodo, editTodo }) => {
 					<p>
 						<strong>Status:</strong> {task.status}
 					</p>
-				</div>
+				</section>
 				<br />
 			</div>
 			<FontAwesomeIcon
@@ -51,6 +53,6 @@ export const Todo = ({ task, deleteTodo, editTodo }) => {
 				setIsOpen={setIsOpen}
 				editTodo={editTodo}
 			/>
-		</div>
+		</article>
 	);
 };

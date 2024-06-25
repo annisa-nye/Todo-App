@@ -43,25 +43,37 @@ export const TodoWrapper = () => {
 	};
 
 	return (
-		<div className='TodoWrapper'>
-			<h1>✅ To Do Application ✅</h1>
+		<section className='TodoWrapper'>
+			<header>
+				<h1>✅ To Do Application ✅</h1>
+			</header>
 			<TodoForm addTodo={addTodo} />
 
-			<div className='sort-buttons'>
-				<button onClick={() => sortTodos('all')} className='todo-btn'>All</button>
-				<button onClick={() => sortTodos('in-progress')} className='todo-btn'>In Progress</button>
-				<button onClick={() => sortTodos('completed')} className='todo-btn'>Completed</button>
-				<button onClick={() => sortTodos('review')} className='todo-btn'>Review</button>
-			</div>
+			<nav className='sort-buttons'>
+				<button onClick={() => sortTodos('all')} className='todo-btn'>
+					All
+				</button>
+				<button onClick={() => sortTodos('in-progress')} className='todo-btn'>
+					In Progress
+				</button>
+				<button onClick={() => sortTodos('completed')} className='todo-btn'>
+					Completed
+				</button>
+				<button onClick={() => sortTodos('review')} className='todo-btn'>
+					Review
+				</button>
+			</nav>
 
-			{getSortedTodos().map((todo) => (
-				<Todo
-					key={todo.id}
-					task={todo}
-					deleteTodo={deleteTodo}
-					editTodo={editTodo}
-				/>
-			))}
-		</div>
+			<div>
+				{getSortedTodos().map((todo) => (
+					<Todo
+						key={todo.id}
+						task={todo}
+						deleteTodo={deleteTodo}
+						editTodo={editTodo}
+					/>
+				))}
+			</div>
+		</section>
 	);
 };
