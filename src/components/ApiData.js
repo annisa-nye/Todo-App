@@ -1,34 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
-const ApiData = () => {
-    const [data, setData] = useState(null);
-    const [error, setError] = useState(null);
-
+function ApiData() {
+    const [data, setData] = useState([])
+    const [loading, setLoading] = useState(false)
     useEffect(() => {
-        const getData = async (url) => {
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error('Request failed');
-                }
-                const data = await response.json();
-                console.log('Fetched data:', data);
-                setData(data);
-            } catch (error) {
-                setError(error.message);
-            }
-        };
+        setLoading(true)
+        fetch("https://onlineprojectsgit.github.io/API/WDEndpoint.json")
+            .then(response => response.json())
+            .then(json => setData(json))
+            .finally(() => {
+                setLoading(false)
+            })
+    }, [])
 
-        getData('https://onlineprojectsgit.github.io/API/WDEndpoint.json');
-    }, []);
-
-    if (error) {
-        return <div id="output">Error: {error}</div>;
-    }
-
-    if (!data) {
-        return <div id="output">Loading...</div>;
-    }
 
     return (
         <div id="output" style={{ backgroundColor: '#f5f5f5', padding: '1rem', marginTop: '1rem', borderRadius: '5px' }}>
@@ -42,7 +26,11 @@ const ApiData = () => {
             <p><strong>Instructor Cohorts:</strong> {data.info.instructor.cohorts}</p>
             <p><strong>Students:</strong> {Array.isArray(data.info.students) ? data.info.students.join(', ') : 'N/A'}</p>
         </div>
-    );
-};
+    )
+}
+
+
 
 export default ApiData;
+
+
