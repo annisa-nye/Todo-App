@@ -140,6 +140,11 @@ h2 {
 .completed {
 	color: var(--completed);
 	text-decoration: line-through;
+	border: 2px solid black;
+	border-radius: 8;
+	padding: 8;
+	margin: 8;
+
 }
 
 .edit-icon,
