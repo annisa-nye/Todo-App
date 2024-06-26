@@ -128,8 +128,9 @@ h2 {
 }
 
 .todo-btn.active {
-	background: var(--new-task);
+	background: var(--main-base);
 	color: var(--main-text);
+    transform: scale(1.1);
 }
 
 .todos {
