@@ -30,17 +30,34 @@ body {
 	background-size: cover;
 	background-position: center;
 	margin: 0;
-	height: 100%;
+	min-height: 100vh;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
 }
 
 .App {
 	text-align: center;
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
+	justify-content: flex-start;
 	align-items: center;
 	width: 100%;
+	flex: 1;
+}
+
+main {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+footer {
+	width: 100%;
+	background-color: #f5f5f5;
+	padding: 1rem;
+	margin-top: auto;
+	border-radius: 5px;
+	text-align: center;
 }
 
 h1 {
@@ -59,7 +76,7 @@ h2 {
 
 .TodoWrapper {
 	background: var(--todo-wrapper);
-	margin-top: 5rem;
+	margin-top: 2rem; /* Ensure space from the top */
 	margin-bottom: 5rem;
 	padding: 3rem;
 	border-radius: 10px;
@@ -234,6 +251,7 @@ h2 {
 	.TodoWrapper {
 		width: 85%;
 		padding: 1rem;
+		margin-top: 2rem; /* Ensure space from the top */
 	}
 	.todos.grid-4 {
 		grid-template-columns: repeat(1, 1fr); /* Adjust to 1 column */
@@ -243,7 +261,7 @@ h2 {
 @media (max-width: 576px) {
 	.TodoWrapper {
 		width: 80%;
-		margin: 1rem;
+		margin: 2rem 1rem 1rem; /* Ensure space from the top */
 		padding: 1rem;
 	}
 	h1 {
