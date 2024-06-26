@@ -1,37 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+
+import { useFetchData } from "../hooks/useFetchData";
+
 
 function ApiData() {
-    const [data, setData] = useState({}); 
-    const [loading, setLoading] = useState(false);
-
-    useEffect(() => {
-        setLoading(true); 
-
-        fetch("https://onlineprojectsgit.github.io/API/WDEndpoint.json")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(json => {
-                setData(json);
-            })
-            .catch(error => {
-                console.error('Error fetching data:', error);
-                // Optionally set an error state here if needed
-            })
-            .finally(() => {
-                setLoading(false); // Always set loading to false after fetch completes
-            });
-
-    }, []); // Empty dependency array ensures effect runs only once
+    const { data, isPending, error } = useFetchData('https://onlineprojectsgit.github.io/API/WDEndpoint.json')
 
     return (
         <div id="output" style={{ backgroundColor: '#f5f5f5', padding: '1rem', marginTop: '1rem', borderRadius: '5px' }}>
-            {loading ? (
-                <div>Loading...</div>
-            ) : (
+            {isPending && <div>Loading...</div>}
+            {error && <div>Error: {error}</div>}
+            {data && data.info ? (
                 <>
                     <p><strong>ID:</strong> {data.info ? data.info.id : 'N/A'}</p>
                     <p><strong>Cohort:</strong> {data.info ? data.info.cohort : 'N/A'}</p>
@@ -43,11 +22,12 @@ function ApiData() {
                     <p><strong>Instructor Cohorts:</strong> {data.info && data.info.instructor ? data.info.instructor.cohorts : 'N/A'}</p>
                     <p><strong>Students:</strong> {Array.isArray(data.info && data.info.students) ? data.info.students.join(', ') : 'N/A'}</p>
                 </>
+            ) : (
+                !isPending && !error && <div>No data available</div>
             )}
         </div>
     );
 }
 
 export default ApiData;
-
 
