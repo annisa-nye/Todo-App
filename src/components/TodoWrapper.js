@@ -1,21 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { TodoForm } from './TodoForm';
 import { Todo } from './Todo';
 
 export const TodoWrapper = () => {
-	const [todos, setTodos] = useState([]);
+	const [todos, setTodos] = useState(() => {
+		// Initialize state from local storage
+		const savedTodos = localStorage.getItem('todos');
+		return savedTodos ? JSON.parse(savedTodos) : [];
+	});
 	const [sortOrder, setSortOrder] = useState('all'); // Default sort order
 
+	useEffect(() => {
+		// Update local storage whenever todos state changes
+		localStorage.setItem('todos', JSON.stringify(todos));
+	}, [todos]);
+
 	const addTodo = (task) => {
-		setTodos([
-			...todos,
-			{ id: uuidv4(), ...task, completed: false, isEditing: false },
-		]);
+		const newTodo = {
+			id: uuidv4(),
+			...task,
+			completed: false,
+			isEditing: false,
+		};
+		setTodos([...todos, newTodo]);
 	};
 
 	const deleteTodo = (id) => {
-		setTodos(todos.filter((todo) => todo.id !== id));
+		const updatedTodos = todos.filter((todo) => todo.id !== id);
+		setTodos(updatedTodos);
 	};
 
 	const editTodo = (id, updatedTask) => {
