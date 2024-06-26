@@ -64,7 +64,7 @@ export const TodoWrapper = () => {
 				</button>
 			</nav>
 
-			<div>
+			<div className='todos'>
 				{getSortedTodos().map((todo) => (
 					<Todo
 						key={todo.id}

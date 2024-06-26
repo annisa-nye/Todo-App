@@ -9,44 +9,36 @@ export const Todo = ({ task, deleteTodo, editTodo }) => {
 	return (
 		<article
 			className={`todo ${task.status === 'completed' ? 'completed' : ''}`}
-			style={{
-				backgroundColor: 'rgb(255, 238, 255)',
-				border: '2px solid black',
-				borderRadius: 8,
-				padding: 8,
-				margin: 8,
-			}}
 		>
-			<div className='flex justify-between'>
-				<header>
-					<h2>{task.name}</h2>
-				</header>
+			<div className='todo-header'>
+				<h2>{task.name}</h2>
 				<p>{task.description}</p>
-				<section className='task-info'>
-					<p>
-						<strong>Due:</strong> {task.dueDate}
-					</p>
-					<p>
-						<strong>Assigned to:</strong> {task.assignedTo}
-					</p>
-					<p>
-						<strong>Status:</strong> {task.status}
-					</p>
-				</section>
-				<br />
 			</div>
-			<FontAwesomeIcon
-				icon={faPenToSquare}
-				className='icon edit-icon'
-				onClick={() => setIsOpen(true)}
-				color='blue'
-			/>
-			<FontAwesomeIcon
-				icon={faTrash}
-				onClick={() => deleteTodo(task.id)}
-				className='icon delete-icon'
-				color='red'
-			/>
+			<section className='task-info'>
+				<p>
+					<strong>Due:</strong> {task.dueDate}
+				</p>
+				<p>
+					<strong>Assigned to:</strong> {task.assignedTo}
+				</p>
+				<p>
+					<strong>Status:</strong> {task.status}
+				</p>
+			</section>
+			<div className='todo-actions'>
+				<FontAwesomeIcon
+					icon={faPenToSquare}
+					className='icon edit-icon'
+					onClick={() => setIsOpen(true)}
+					color='blue'
+				/>
+				<FontAwesomeIcon
+					icon={faTrash}
+					onClick={() => deleteTodo(task.id)}
+					className='icon delete-icon'
+					color='red'
+				/>
+			</div>
 			<EditTodoForm
 				task={task}
 				isOpen={isOpen}
