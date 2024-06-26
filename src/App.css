@@ -2,234 +2,256 @@
 @import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+VIC:wght@100..400&family=Playwrite+ES:wght@100..400&display=swap');
 
 :root {
-    --header-height: 3rem;
+	--header-height: 3rem;
 
-    /*========== Colors ==========*/
-    /* Change favorite color */
+	/*========== Colors ==========*/
+	/* Change favorite color */
 
-    --background: rgb(255, 238, 255);
-    --main-base: #7ad7f0;
-    --main-box: #44c8e0;
-    --main-text: #fff;
-    --new-task: rgb(183, 183, 255);
-    --new-task-hover: rgb(219, 208, 255);
-    --todo-wrapper: #fd7ac0;
-    --todo-placeholder: #ffffff4d;
-    --completed: rgb(255, 183, 255);
+	--background: rgb(255, 238, 255);
+	--main-base: #7ad7f0;
+	--main-box: #44c8e0;
+	--main-text: #fff;
+	--new-task: rgb(183, 183, 255);
+	--new-task-hover: rgb(219, 208, 255);
+	--todo-wrapper: #fd7ac0;
+	--todo-placeholder: #ffffff4d;
+	--completed: rgb(255, 183, 255);
 }
 
 * {
-    font-family: 'Work Sans', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	font-family: 'Work Sans', sans-serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    background-image: url(../src/components/images/hhholographic.png);
-    background-size: cover;
-    background-position: center;
-    margin: 0;
-    height: 100%;
-    display: flex;
-    justify-content: center;
+	background-image: url(../src/components/images/hhholographic.png);
+	background-size: cover;
+	background-position: center;
+	margin: 0;
+	height: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 .App {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
 }
 
 h1 {
-    font-family: 'Playwrite AU VIC', cursive;
-    color: var(--main-text);
-    margin-bottom: 0.5rem;
-    font-size: 1.75rem;
+	font-family: 'Playwrite AU VIC', cursive;
+	color: var(--main-text);
+	margin-bottom: 0.5rem;
+	font-size: 1.75rem;
 }
 
 h2 {
-    font-family: 'Playwrite AU VIC', cursive;
-    color: black;
-    margin-bottom: 0.5rem;
-    font-size: 1.75rem;
+	font-family: 'Playwrite AU VIC', cursive;
+	color: black;
+	margin-bottom: 0.5rem;
+	font-size: 1.75rem;
 }
 
 .TodoWrapper {
-    background: var(--todo-wrapper);
-    margin-top: 5rem;
-    margin-bottom: 5rem;
-    padding: 3rem;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 1200px; /* Maximum width to keep it consistent */
-    min-width: 300px; /* Minimum width to keep it from getting too narrow */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+	background: var(--todo-wrapper);
+	margin-top: 5rem;
+	margin-bottom: 5rem;
+	padding: 3rem;
+	border-radius: 10px;
+	width: 100%;
+	max-width: 1200px; /* Maximum width to keep it consistent */
+	min-width: 300px; /* Minimum width to keep it from getting too narrow */
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 
 .TodoForm {
-    width: 100%;
-    margin-bottom: 1rem;
+	width: 100%;
+	margin-bottom: 1rem;
 }
 
 .newtask-btn {
-    background: var(--new-task);
-    border: none;
-    color: var(--main-text);
-    padding: 0.8rem;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 0.5rem;
-    font-size: large;
+	background: var(--new-task);
+	border: none;
+	color: var(--main-text);
+	padding: 0.8rem;
+	cursor: pointer;
+	border-radius: 5px;
+	margin: 0.5rem;
+	font-size: large;
 }
 
 .newtask-btn:hover {
-    background: var(--new-task-hover);
-    color: var(--main-text);
-    font-style: bold;
-    transform: scale(1.1);
+	background: var(--new-task-hover);
+	color: var(--main-text);
+	font-style: bold;
+	transform: scale(1.1);
 }
 
 .small-newtask-btn {
-    background: var(--new-task);
-    border: none;
-    color: var(--main-text);
-    padding: 0.8rem;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 0.5rem;
+	background: var(--new-task);
+	border: none;
+	color: var(--main-text);
+	padding: 0.8rem;
+	cursor: pointer;
+	border-radius: 5px;
+	margin: 0.5rem;
 }
 
 .small-newtask-btn:hover {
-    background: var(--new-task-hover);
-    color: var(--main-text);
-    font-style: bold;
-    transform: scale(1.1);
+	background: var(--new-task-hover);
+	color: var(--main-text);
+	font-style: bold;
+	transform: scale(1.1);
 }
 
 .todo-btn {
-    background: var(--main-box);
-    border: none;
-    color: var(--main-text);
-    padding: 0.8rem;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 0.5rem;
+	background: var(--main-box);
+	border: none;
+	color: var(--main-text);
+	padding: 0.8rem;
+	cursor: pointer;
+	border-radius: 5px;
+	margin: 0.5rem;
 }
 
 .todo-btn:hover {
-    background: var(--main-base);
-    color: var(--main-text);
-    transform: scale(1.1);
+	background: var(--main-base);
+	color: var(--main-text);
+	transform: scale(1.1);
+}
+
+.todo-btn.active {
+	background: var(--new-task);
+	color: var(--main-text);
 }
 
 .todos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    width: 100%;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	gap: 1rem;
+	width: 100%;
+}
+
+.todos.grid-4 {
+	grid-template-columns: repeat(4, 1fr);
 }
 
 .todo {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background-color: rgb(255, 238, 255);
-    border: 2px solid black;
-    border-radius: 8px;
-    padding: 8px;
-    margin: 8px;
-    width: calc(100% - 16px); /* Ensure consistent width */
-    box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: rgb(255, 238, 255);
+	border: 2px solid black;
+	border-radius: 8px;
+	padding: 8px;
+	margin: 8px;
+	width: calc(100% - 16px); /* Ensure consistent width */
+	box-sizing: border-box;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+	white-space: pre-wrap;
+	overflow: hidden; /* Ensure text stays within the bounds */
 }
 
 .todo-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 8px;
 }
 
 .task-info {
-    margin-top: 8px;
+	margin-top: 8px;
 }
 
 .todo-actions {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-top: 8px;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-top: 8px;
 }
 
 .fa-trash {
-    margin-left: 0.75rem;
+	margin-left: 0.75rem;
 }
 
 .completed {
-    background-color: var(--completed);
-    text-decoration: line-through;
-    color: gray;
+	background-color: var(--completed);
+	text-decoration: line-through;
+	color: gray;
 }
 
 .edit-icon,
 .delete-icon {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 .error {
-    color: red;
-    font-size: 0.8rem;
-    margin-bottom: 0.5rem;
+	color: red;
+	font-size: 0.8rem;
+	margin-bottom: 0.5rem;
 }
 
 .weather-time {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 10px;
-    border-radius: 8px;
-    border: 2px solid var(--todo-wrapper);
-    z-index: 1000; /* Ensure it stays on top of other elements */
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 10px;
+	border-radius: 8px;
+	border: 2px solid var(--todo-wrapper);
+	z-index: 1000; /* Ensure it stays on top of other elements */
 }
 
 /* Media queries for responsiveness */
 @media (max-width: 1200px) {
-    .TodoWrapper {
-        width: 95%;
-    }
+	.TodoWrapper {
+		width: 95%;
+	}
+	.todos.grid-4 {
+		grid-template-columns: repeat(3, 1fr); /* Adjust to 3 columns */
+	}
 }
 
 @media (max-width: 992px) {
-    .TodoWrapper {
-        width: 90%;
-    }
+	.TodoWrapper {
+		width: 90%;
+	}
+	.todos.grid-4 {
+		grid-template-columns: repeat(2, 1fr); /* Adjust to 2 columns */
+	}
 }
 
 @media (max-width: 768px) {
-    .TodoWrapper {
-        width: 85%;
-        padding: 1rem;
-    }
+	.TodoWrapper {
+		width: 85%;
+		padding: 1rem;
+	}
+	.todos.grid-4 {
+		grid-template-columns: repeat(1, 1fr); /* Adjust to 1 column */
+	}
 }
 
 @media (max-width: 576px) {
-    .TodoWrapper {
-        width: 80%;
-        margin: 1rem;
-        padding: 1rem;
-    }
-    h1 {
-        font-size: 1.5rem;
-    }
-    h2 {
-        font-size: 1.25rem;
-    }
-    .weather-time {
-        display: none; /* Hide weather-time on small screens */
-    }
+	.TodoWrapper {
+		width: 80%;
+		margin: 1rem;
+		padding: 1rem;
+	}
+	h1 {
+		font-size: 1.5rem;
+	}
+	h2 {
+		font-size: 1.25rem;
+	}
+	.weather-time {
+		display: none; /* Hide weather-time on small screens */
+	}
 }
